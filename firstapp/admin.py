@@ -5,13 +5,13 @@ from django.forms import TextInput, Textarea
 # Register your models here.
 class UserAdminConfig(UserAdmin):
     model = NewUser
-    search_fields = ('email', 'user_name', 'first_name',)
+    search_fields = ('email', 'user_name', 'first_name','user_type',)
     list_filter = ('email', 'user_name', 'first_name', 'is_active', 'is_staff')
     ordering = ('-start_date',)
-    list_display = ('email', 'user_name', 'first_name',
+    list_display = ('email', 'user_name', 'first_name','user_type',
                     'is_active', 'is_staff')
     fieldsets = (
-        (None, {'fields': ('email', 'user_name', 'first_name',)}),
+        (None, {'fields': ('email', 'user_name', 'first_name','user_type',)}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
         ('Personal', {'fields': ('about',)}),
     )
@@ -21,7 +21,7 @@ class UserAdminConfig(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'user_name', 'first_name', 'password1', 'password2', 'is_active', 'is_staff')}
+            'fields': ('email', 'user_name', 'first_name','user_type', 'password1', 'password2', 'is_active', 'is_staff')}
          ),
     )
 
